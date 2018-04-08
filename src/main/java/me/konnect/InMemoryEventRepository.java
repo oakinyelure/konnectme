@@ -34,4 +34,9 @@ public class InMemoryEventRepository implements EventRepository {
     public List<Event> getEventByTag(@Nonnull String tag) {
         return null;
     }
+
+    @Override
+    public Event addEvent(@Nonnull Event event) {
+        return null;
+    }
 }

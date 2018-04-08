@@ -31,6 +31,8 @@ dependencies {
     compile 'com.google.inject:guice:4.2.0'
     compile 'commons-cli:commons-cli:1.4'
 
+    compile 'com.google.cloud:google-cloud-datastore:1.24.1'
+
     testCompile 'junit:junit:4.12'
 }
 
