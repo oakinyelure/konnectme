@@ -1,0 +1,8 @@
+indexes:
+
+- kind: Events
+  properties:
+  - name: name
+  - name: tags
+  - name: created
+    direction: desc

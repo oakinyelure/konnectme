@@ -24,12 +24,22 @@ public class GcloudEventRepository implements EventRepository {
 
     @Override
     public Optional<Event> getEventById(@Nonnull String eventId) {
-        Key key = Key.fromUrlSafe(eventId);
-        Entity entity = datastore.get(key);
-        if(entity == null) {
+        if(!validUrlSafeKey(eventId)) {
             return Optional.empty();
         }
-        return Optional.of(fromEntity(entity));
+        Entity entity = datastore.get(Key.fromUrlSafe(eventId));
+        Optional<Event> result = entity == null ? Optional.empty() :
+                                            Optional.of(fromEntity(entity));
+        return result;
+    }
+
+    private boolean validUrlSafeKey(String urlKey) {
+        try {
+            Key.fromUrlSafe(urlKey);
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+        return true;
     }
 
     @Override

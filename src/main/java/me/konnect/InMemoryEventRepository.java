@@ -31,12 +31,32 @@ public class InMemoryEventRepository implements EventRepository {
     }
 
     @Override
-    public List<Event> getEventByTag(@Nonnull String tag) {
+    public List<Event> getEventByTag(@Nonnull String tag, int limit) {
+        return null;
+    }
+
+    @Override
+    public List<Event> getEventByTagAfterTime(@Nonnull String tag, long timestamp, int limit) {
+        return null;
+    }
+
+    @Override
+    public List<Event> getLatestEvents(int limit) {
+        return null;
+    }
+
+    @Override
+    public List<Event> getEventAfterTimestamp(long timestamp, int limit) {
         return null;
     }
 
     @Override
     public Event addEvent(@Nonnull Event event) {
         return null;
+    }
+
+    @Override
+    public void deleteEvent(@Nonnull String eventId) {
+
     }
 }

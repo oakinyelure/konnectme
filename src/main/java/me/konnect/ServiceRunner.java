@@ -1,9 +1,7 @@
 package me.konnect;
 
+import freemarker.template.Configuration;
 import org.apache.commons.cli.*;
-import spark.Request;
-import spark.Response;
-import spark.Route;
 import spark.Spark;
 
 import static spark.Spark.get;
@@ -19,8 +17,9 @@ public class ServiceRunner {
             portNumber = Integer.parseInt(cmd.getOptionValue("p"));
         }
         Spark.port(portNumber);
+        Spark.staticFileLocation("/public");
 
-        new FeedController();
+        new RouteController();
     }
 
     public static Options generateOptions() {
