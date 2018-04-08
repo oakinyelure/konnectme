@@ -3,19 +3,20 @@ package me.konnect;
 import com.google.common.base.MoreObjects;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Event {
-    private String id;
+    private String id = "";
 
     @SerializedName("event_name")
-    private String name;
+    private String name = "";
 
-    private String description;
-    private List<String> organizers;
-    private String location;
-    private List<String> tags;
-    private List<String> interestedUsers;
+    private String description = "";
+    private List<String> organizers = new ArrayList<>();
+    private String location = "";
+    private List<String> tags = new ArrayList<>();
+    private List<String> interestedUsers = new ArrayList<>();
     // createdTimestamp in milliseconds
     private long createdTimestamp;
     private long modifiedTimestamp;

@@ -16,9 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-import static spark.Spark.after;
-import static spark.Spark.exception;
-import static spark.Spark.get;
+import static spark.Spark.*;
+import static spark.route.HttpMethod.post;
 
 
 public class RouteController {
@@ -45,6 +44,8 @@ public class RouteController {
     private void initializeRoutes() {
         getWelcomePage();
         getCreateEventPage();
+        getFeed();
+        createEvent();
         filterById();
         filterByTags();
         filterByLatest();
@@ -67,6 +68,25 @@ public class RouteController {
         }, freeMarkerEngine);
     }
 
+    private void getFeed() {
+        get("/feed", (request, response) -> {
+            response.status(200);
+            response.header("Content-Type", "text/html");
+            return new ModelAndView(new HashMap<>(), "feed.ftl");
+        }, freeMarkerEngine);
+    }
+
+    private void createEvent() {
+        post("/create", "application/json", (request, response) -> {
+            Event event = gson.fromJson(request.body(), Event.class);
+            logger.info("New proposed event\n{}", event);
+
+            event = eventRepository.addEvent(event);
+            response.status(HttpStatus.CREATED);
+            return gson.toJson(event);
+
+        });
+    }
     private void filterByTags() {
         get("/event/tags", "application/json", (request, response) -> {
 
@@ -127,7 +147,7 @@ public class RouteController {
         exception(EventFeedException.class, (e, request, response) -> {
             logger.error(e.getMessage());
 
-            response.status(404);
+            response.status(e.getHttpErrorCode());
             response.header("Content-Type", "application/json");
 
             JsonObject jsonObject = new JsonObject();

@@ -72,7 +72,7 @@ body, html {
 }
 
 #navigation ul {
-    text-align: center; 
+    text-align: center;
     padding: 10px 0 0 0;
 }
 
@@ -99,7 +99,7 @@ body, html {
 #navigation #logo a {
     font-size: 1.7em;
     color: navy;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 #logo {
@@ -120,7 +120,7 @@ body, html {
 input {
     float: right;
     display: inline-block;
-    margin: 0 50px 0 0; 
+    margin: 0 50px 0 0;
 }
 
 input[type=search] {
@@ -152,7 +152,7 @@ a:hover {
 }
 
 #edit {
-    
+
 }
 
 #user-info {
@@ -254,7 +254,10 @@ span {
 
 .card-header {
     color: white;
-    background-color: #F05F40;
+    background: #ad5389;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .card-block {
@@ -359,31 +362,31 @@ hr {
     #user-info img {
         width: 100px;
     }
-    
+
     #user-info h4 {
         font-size: 1em;
     }
-    
+
     #user-info a {
         font-size: 0.9em;
     }
-    
+
     #links ul li{
         font-size: 1em;
     }
-    
+
     #search-bar {
         display: none;
     }
-    
+
     #navigation {
         padding: 10px 0 0 0;
     }
-    
+
     #logo {
         text-align: center;
     }
-    
+
     #navigation ul li {
         font-size: 0.9em;
     }
@@ -395,51 +398,51 @@ hr {
     #section1, input {
         display: none;
     }
-    
+
     #ui {
         width: 100%;
     }
-    
+
     #section4 {
         width: 100%;
         padding-left: 1%;
         padding-right: 1%;
     }
-    
+
     #section5 {
         width: 95%;
         text-align: center;
     }
-    
+
     #logo {
-        text-align: center; 
+        text-align: center;
     }
-    
+
     #navigation {
         padding: 15px 0 0 0;
     }
-    
+
     #navigation ul li {
         font-size: 1em;
     }
-    
+
     #search-bar, #search-bar .fa {
         display: none;
     }
-    
+
     .thumbnails img {
         width: 100px;
         height: 80px;
         margin: 5px 0;
     }
-    
+
     .post-links a {
         color: gray;
         font-size: 35px;
         position: relative;
         top: 12px;
 }
-    
+
 
 }
 
@@ -447,17 +450,17 @@ hr {
     #navigation ul {
         display: none;
     }
-    
+
     .fa-bars {
         display: inline;
         float: right;
     }
-    
+
     #logo {
         padding: 15px 0 0 0;
         text-align: center;
     }
-    
+
     .post-links a {
         color: gray;
         font-size: 30px;
@@ -467,11 +470,5 @@ hr {
 }
 
 @media(max-width: 450px) {
-    
+
 }
-
-
-
-
-
-
